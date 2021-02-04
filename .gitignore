@@ -34,4 +34,5 @@
 
 
 # coverage
-/coverage
+/coverage.data
+/coverage/
