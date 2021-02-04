@@ -6,9 +6,9 @@ project:
     pivotal:
       url: 'https://www.pivotaltracker.com/n/projects/2487695'
     heroku:
-      url: 'url'
+      url: 'https://desolate-springs-80569.herokuapp.com'
     travis:
-      url: 'url'
+      url: 'https://travis-ci.org/github/zfred219/q2q'
     codecov:
       url: ''
   members:
