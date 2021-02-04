@@ -58,3 +58,5 @@ end
 
 # Simple cov
 gem 'simplecov', require: false, group: :test
+
+gem 'travis'
