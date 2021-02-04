@@ -3,33 +3,39 @@
 
 language: ruby
 
-rvm:
- — 2.6.6
+# Cache gems
+cache:
+  bundler: true
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+  #firefox: latest
 
 env:
   global:
-    # CC_TEST_REPORTER_ID=ABC123
+    CC_TEST_REPORTER_ID=ABC123
 
 before_install:
-  # - nvm install                         # Install node version from .nvmrc
-  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  # - chmod +x ./cc-test-reporter
-  # #- export DISPLAY=:99.0                # Display number for xvfb (for headless browser testing)
-  # #- sh -e /etc/init.d/xvfb start        # Start xvfb (for headless browser testing)
+  - nvm install                         # Install node version from .nvmrc
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  #- export DISPLAY=:99.0                # Display number for xvfb (for headless browser testing)
+  #- sh -e /etc/init.d/xvfb start        # Start xvfb (for headless browser testing)
 
 install:
-  # - bundle install --without production --path=${BUNDLE_PATH:-vendor/bundle}  # Install ruby gems, excluding production only gems such as unicorn (already present by default in Travis)
-  # - npm install                         # Install npm dependencies
-  # #- npm install karma-firefox-launcher codeclimate-test-reporter
+  - bundle install --without production --path=${BUNDLE_PATH:-vendor/bundle}  # Install ruby gems, excluding production only gems such as unicorn (already present by default in Travis)
+  - npm install                         # Install npm dependencies
+  #- npm install karma-firefox-launcher codeclimate-test-reporter
 
 # Setup the database
 before_script: bundle exec rake db:create db:migrate
 
 # Run the test suites
 script:
-  - cucumber         # Backend linting
+  - cucumber           # Backend linting
   - rspec                    # Backend specs
-
 
 # Pipe the coverage data to Code Climate
 after_script:
