@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/zfred219/q2q.svg?branch=master)](https://travis-ci.org/zfred219/q2q)
 
 Things you may want to cover:
 
