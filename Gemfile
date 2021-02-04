@@ -46,6 +46,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # FRED:
 
+# make sure references to sqlite3 gem ONLY appear in dev/test groups
+group :development, :test do
+  gem 'sqlite3'
+end 
+
+# make sure the following gems are in your production group:
+group :production do
+  gem 'pg'              # use PostgreSQL in production (Heroku)
+end
+
 # setup Cucumber, RSpec, Guard support
 group :test do
   gem 'rspec-rails'
