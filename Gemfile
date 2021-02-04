@@ -45,6 +45,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # FRED:
+
 # setup Cucumber, RSpec, Guard support
 group :test do
   gem 'rspec-rails'
@@ -54,3 +55,6 @@ group :test do
   gem 'cucumber-rails-training-wheels' # basic imperative step defs like "Then I should see..."
   gem 'database_cleaner' # required by Cucumber
 end
+
+# Simple cov
+gem 'simplecov', require: false, group: :test
