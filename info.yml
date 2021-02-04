@@ -1,0 +1,22 @@
+project:
+  name: 'q2q'
+  owner: 'cs169'
+  teamId: '8'
+  identities:
+    pivotal:
+      url: 'https://www.pivotaltracker.com/n/projects/2487695'
+    heroku:
+      url: 'url'
+    travis:
+      url: 'url'
+    codecov:
+      url: ''
+  members:
+    member1:
+      name: 'Fred'
+      surname: 'Zhang' 
+      githubUsername: 'zfred219'
+      pivotalUsername: 'fredzhang3'
+      herokuEmail: 'zkx219@gmail.com'
+
+       
