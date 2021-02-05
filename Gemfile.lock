@@ -350,7 +350,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (>= 6)
   simplecov
-  sqlite3 (~> 1.4)
+  sqlite3
   travis
   tzinfo-data
   web-console (>= 4.1.0)
