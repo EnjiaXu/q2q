@@ -9,8 +9,6 @@ project:
       url: 'https://desolate-springs-80569.herokuapp.com.url' 
     travis:
       url: 'https://travis-ci.org/github/zfred219/q2q.url'
-    codecov:
-      url: ''
   members:
     member1:
       name: 'Fred'
