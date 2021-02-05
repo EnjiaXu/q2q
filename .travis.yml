@@ -37,11 +37,15 @@ before_script: bundle exec rake db:create db:migrate
 # Run the test suites
 script:
   - bundle exec rspec           # Backend linting
+  - ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json
   - bundle exec cucumber                    # Backend specs
+  - ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=6f49430d48ab4caae864848fd4c385ee93d3a9439e640365535500f071f02208
 
 # Pipe the coverage data to Code Climate
 after_script:
-  - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.backend.json coverage/.last_run.json # Format backend coverage
-  # - ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.frontend.json coverage/frontend/lcov.info  # Format frontend coverage
-  # - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2                  # Sum both coverage parts into coverage/codeclimate.json
-  # - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi  # Upload coverage/codeclimate.json
+  - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
