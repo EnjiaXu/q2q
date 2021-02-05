@@ -40,3 +40,31 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+
+# FRED:
+
+# make sure references to sqlite3 gem ONLY appear in dev/test groups
+
+
+# make sure the following gems are in your production group:
+group :production do
+  gem 'pg'              # use PostgreSQL in production (Heroku)
+end
+
+# setup Cucumber, RSpec, Guard support
+group :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'simplecov', :require => false
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # basic imperative step defs like "Then I should see..."
+  gem 'database_cleaner' # required by Cucumber
+end
+
+# Simple cov
+gem 'simplecov', require: false, group: :test
+
+gem 'travis'
