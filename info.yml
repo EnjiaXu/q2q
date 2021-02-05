@@ -6,7 +6,7 @@ project:
     pivotal:
       url: 'https://www.pivotaltracker.com/n/projects/2487695'
     heroku:
-      url: 'https://desolate-springs-80569.herokuapp.com'
+      url: 'https://desolate-springs-80569.herokuapp.com' 
     travis:
       url: 'https://travis-ci.org/github/zfred219/q2q'
     codecov:
