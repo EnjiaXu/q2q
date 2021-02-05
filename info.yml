@@ -6,7 +6,7 @@ project:
     pivotal:
       url: 'https://www.pivotaltracker.com/n/projects/2487695'
     heroku:
-      url: 'https://dashboard.heroku.com/apps/q2q' 
+      url: 'https://dashboard.heroku.com/apps/desolate-springs-80569' 
     travis:
       url: 'https://travis-ci.org/github/zfred219/q2q'
   members:
