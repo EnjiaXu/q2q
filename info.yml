@@ -4,7 +4,7 @@ project:
   teamId: '8'
   identities:
     pivotal:
-      url: 'https://www.pivotaltracker.com/n/projects/2487695'
+      url: 'https://www.pivotaltracker.com/n/projects/2487965'
     heroku:
       url: 'https://q2q.herokuapp.com/' 
     travis:
