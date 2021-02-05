@@ -4,11 +4,11 @@ project:
   teamId: '8'
   identities:
     pivotal:
-      url: 'https://www.pivotaltracker.com/n/projects/2487695.url'
+      url: 'https://www.pivotaltracker.com/n/projects/2487695'
     heroku:
-      url: 'https://desolate-springs-80569.herokuapp.com.url' 
+      url: 'https://desolate-springs-80569.herokuapp' 
     travis:
-      url: 'https://travis-ci.org/github/zfred219/q2q.url'
+      url: 'https://travis-ci.org/github/zfred219/q2q'
   members:
     member1:
       name: 'Fred'
