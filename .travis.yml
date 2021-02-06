@@ -3,11 +3,6 @@
 
 language: ruby
 
-# Cache gems
-cache:
-  bundler: true
-  directories:
-    - node_modules
 
 addons:
   chrome: stable
