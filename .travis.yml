@@ -3,44 +3,29 @@
 
 language: ruby
 
-
-addons:
-  chrome: stable
-  #firefox: latest
-
-before_install:
-  # - nvm install                         # Install node version from .nvmrc
-  - gem install bundler:2.1.4
-  - nvm install 12.13.1
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  #- export DISPLAY=:99.0                # Display number for xvfb (for headless browser testing)
-  #- sh -e /etc/init.d/xvfb start        # Start xvfb (for headless browser testing)
-
-# install:
-#   - bundle install --without production --path=${BUNDLE_PATH:-vendor/bundle}  # Install ruby gems, excluding production only gems such as unicorn (already present by default in Travis)
-#   - npm install                         # Install npm dependencies
-#   #- npm install karma-firefox-launcher codeclimate-test-reporter
-
-# Setup the database
-before_script:
-  - bin/setup
-  - ./cc-test-reporter before-build
-
-script:
-  - "bundle exec cucumber"
-  - ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json
-  - "bundle exec rspec"
-  - ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json
-
+# Cache gems
 cache:
   bundler: true
 
 env:
   global:
-    - CC_TEST_REPORTER_ID=bacc472975785fa4e06533d119b21e83b7c78388d3dc3a40ca8a702f4dc0823a
+    CC_TEST_REPORTER_ID=bacc472975785fa4e06533d119b21e83b7c78388d3dc3a40ca8a702f4dc0823a
+
+before_install:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+
+install:
+  - bundle install --without production --path=${BUNDLE_PATH:-vendor/bundle}  # Install ruby gems, excluding production only gems such as unicorn (already present by default in Travis)
+
+# Setup the database
+before_script: bundle exec rake db:create db:migrate
+
+# Run the test suites
+script:
+  - bundle exec cucumber
+  - bundle exec rspec
 
 # Pipe the coverage data to Code Climate
 after_script:
-  - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
